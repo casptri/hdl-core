@@ -44,13 +44,13 @@ This repo is a collection of some utility modules.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/casptri/hdl-example.svg?style=for-the-badge
-[contributors-url]: https://github.com/casptri/hdl-example/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/casptri/hdl-example.svg?style=for-the-badge
-[forks-url]: https://github.com/casptri/hdl-example/network/members
-[stars-shield]: https://img.shields.io/github/stars/casptri/hdl-example.svg?style=for-the-badge
-[stars-url]: https://github.com/casptri/hdl-example/stargazers
-[issues-shield]: https://img.shields.io/github/issues/casptri/hdl-example.svg?style=for-the-badge
-[issues-url]: https://github.com/casptri/hdl-example/issues
-[license-shield]: https://img.shields.io/github/license/casptri/hdl-example.svg?style=for-the-badge
-[license-url]: https://github.com/casptri/hdl-example/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/casptri/hdl-core.svg?style=for-the-badge
+[contributors-url]: https://github.com/casptri/hdl-core/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/casptri/hdl-core.svg?style=for-the-badge
+[forks-url]: https://github.com/casptri/hdl-core/network/members
+[stars-shield]: https://img.shields.io/github/stars/casptri/hdl-core.svg?style=for-the-badge
+[stars-url]: https://github.com/casptri/hdl-core/stargazers
+[issues-shield]: https://img.shields.io/github/issues/casptri/hdl-core.svg?style=for-the-badge
+[issues-url]: https://github.com/casptri/hdl-core/issues
+[license-shield]: https://img.shields.io/github/license/casptri/hdl-core.svg?style=for-the-badge
+[license-url]: https://github.com/casptri/hdl-core/blob/master/LICENSE.txt
