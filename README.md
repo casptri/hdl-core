@@ -53,4 +53,4 @@ This repo is a collection of some utility modules.
 [issues-shield]: https://img.shields.io/github/issues/casptri/hdl-core.svg?style=for-the-badge
 [issues-url]: https://github.com/casptri/hdl-core/issues
 [license-shield]: https://img.shields.io/github/license/casptri/hdl-core.svg?style=for-the-badge
-[license-url]: https://github.com/casptri/hdl-core/blob/master/LICENSE
+[license-url]: https://github.com/casptri/hdl-core/blob/master/LICENSE.txt
