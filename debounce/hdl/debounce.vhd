@@ -1,13 +1,14 @@
-/**
- * debounce.vhd - debouncing core for IO signals
- *
- * Copyright (c) 2021 Caspar Trittibach
- * Author: Caspar Trittibach <ctrittibach@gmail.com>
- *
- */
+--**
+--* debounce.vhd - debouncing core for IO signals
+--*
+--* Copyright (c) 2021 Caspar Trittibach
+--* Author: Caspar Trittibach <ctrittibach@gmail.com>
+--*
+--**
 
 library IEEE;
 use ieee.std_logic_1164.all;
+
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 

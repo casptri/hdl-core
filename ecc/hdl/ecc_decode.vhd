@@ -1,10 +1,10 @@
-/**
- * ecc_decode.vhd - error correcrion code decoder
- *
- * Copyright (c) 2023 Caspar Trittibach
- * Author: Caspar Trittibach <ctrittibach@gmail.com>
- *
- */
+--**
+--* ecc_decode.vhd - error correcrion code decoder
+--*
+--* Copyright (c) 2023 Caspar Trittibach
+--* Author: Caspar Trittibach <ctrittibach@gmail.com>
+--*
+--**
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

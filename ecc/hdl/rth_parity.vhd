@@ -1,10 +1,10 @@
-/**
- * rth_parity.vhd - Calculate R'th parrity bit of a vector
- *
- * Copyright (c) 2023 Caspar Trittibach
- * Author: Caspar Trittibach <ctrittibach@gmail.com>
- *
- */
+--**
+--* rth_parity.vhd - Calculate R'th parrity bit of a vector
+--*
+--* Copyright (c) 2023 Caspar Trittibach
+--* Author: Caspar Trittibach <ctrittibach@gmail.com>
+--*
+--**
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

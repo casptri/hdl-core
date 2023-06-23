@@ -1,10 +1,10 @@
-/**
- * ecc_encode.vhd- error correcrion code encoder
- *
- * Copyright (c) 2023 Caspar Trittibach
- * Author: Caspar Trittibach <ctrittibach@gmail.com>
- *
- */
+--**
+--* ecc_encode.vhd- error correcrion code encoder
+--*
+--* Copyright (c) 2023 Caspar Trittibach
+--* Author: Caspar Trittibach <ctrittibach@gmail.com>
+--*
+--**
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
