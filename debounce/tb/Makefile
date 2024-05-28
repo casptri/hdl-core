@@ -13,8 +13,7 @@ MODULE := test_debounce
 SIM = ghdl
 VHDL_VERSION = 08
 EXTRA_ARGS = "--std=$(VHDL_VERSION)"
-#SIM_ARGS = --vcd=sim_build/wave.out --ieee-asserts=disable
-SIM_ARGS = --wave=sim_build/wave.ghw --ieee-asserts=disable
+SIM_ARGS = --wave=sim_build/${TOPLEVEL}.ghw --ieee-asserts=disable --vcd=sim_build/${TOPLEVEL}.vcd
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
