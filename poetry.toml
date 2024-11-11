@@ -1,0 +1,4 @@
+
+[virtualenvs]
+in-project = true
+prompt = ".{project_name:.14}"
