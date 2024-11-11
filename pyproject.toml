@@ -1,0 +1,23 @@
+# pyproject.toml
+[tool.pytest.ini_options]
+testpaths = [
+    "ecc/tb",
+    ]
+
+[tool.poetry]
+name = "hdl-core"
+version = "0.1.0"
+description = ""
+authors = ["Caspar Trittibach <caspar.trittibach@haag-streit.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+pytest = "^7.4.3"
+cocotb = "^1.8.1"
+numpy = "^1.26.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
