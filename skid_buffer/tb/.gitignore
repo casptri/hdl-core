@@ -1,0 +1,5 @@
+vunit_out
+sim_build
+
+*.log
+*.jou

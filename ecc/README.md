@@ -13,6 +13,7 @@ For example:
 
 ## Prerequsits
 * Cocotb to run testbench
+* GHDL as a simulator
 
 ## Test Bench
 Setup cocotb to run the tb. For more information, please read the cocotb documentation.

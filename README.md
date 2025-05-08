@@ -24,9 +24,10 @@ This repo is a collection of some utility modules.
 
 ## Roadmap
 - [ ] Fill out Readme
-- [ ] Add more IPs
+- Add more IPs
     - [x] debounce
     - [x] ecc encode and decoder
+    - [x] skid buffer
     - [ ] moving average filter
     - [ ] i2c master
     - [ ] spi master
