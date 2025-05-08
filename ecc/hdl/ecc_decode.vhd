@@ -1,5 +1,5 @@
 --**
---* ecc_decode.vhd - error correcrion code decoder
+--* ecc_decode.vhd - error correction code decoder
 --*
 --* Copyright (c) 2023 Caspar Trittibach
 --* Author: Caspar Trittibach <ctrittibach@gmail.com>
@@ -10,29 +10,29 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.math_real.all;
 
 entity ecc_decode is
-    GENERIC(
+    generic(
         C_ODD_PARITY : std_logic := '1';
         C_DATA_WIDTH : natural range 32 to 64 := 33;
         C_NR_PARITY  : natural range 6 to 7 := 6
            );
-    PORT(
+    port(
         clk   : in std_logic;
         rst   : in std_logic;
         in_valid : in std_logic;
         in_ready : out std_logic;
-        in_data  : in std_logic_vector(C_DATA_WIDTH+C_NR_PARITY downto 0);
+        in_data  : in std_logic_vector(C_DATA_WIDTH + C_NR_PARITY downto 0);
 
         out_valid : out std_logic;
         out_ready : in std_logic;
-        out_data  : out std_logic_vector(C_DATA_WIDTH-1 downto 0);
+        out_data  : out std_logic_vector(C_DATA_WIDTH - 1 downto 0);
         out_is_err : out std_logic
     );
 end ecc_decode;
 
 architecture behavioral of ecc_decode is
+
     constant ECC_DATA_WIDTH : natural := C_DATA_WIDTH + C_NR_PARITY + 1;
 
     signal parity_bit : std_logic_vector(C_NR_PARITY - 1 downto 0);
@@ -46,9 +46,6 @@ architecture behavioral of ecc_decode is
 
 begin
 
-    --check if enough parity bits are present--
-    --assert 2**C_NR_PARITY >= C_DATA_WIDTH + C_NR_PARITY + 2
-    --    report "Generics do not satisfy hamming theorem" severity failure;
 
     parity_gen: for n in 1 to C_NR_PARITY generate
         rth_parity_inst_n : entity work.rth_parity

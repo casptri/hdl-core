@@ -13,20 +13,31 @@ use IEEE.NUMERIC_STD.ALL;
 use IEEE.math_real.all;
 
 entity rth_parity is
-    GENERIC(
+    generic(
             C_DATA_WIDTH : natural range 1 to 256 := 39;
             C_ODD_PARITY : std_logic := '1';
             C_RTH   : natural range 1 to 8 := 3
            );
-    PORT(
+    port(
             data : in std_logic_vector(C_DATA_WIDTH-1 downto 0);
             parity : out std_logic
     );
 end rth_parity;
 
 architecture behavioral of rth_parity is
-    -- TODO: Fix float rounding problem
-    constant C_INDEX_WIDTH : natural := integer(ceil(log2(real(C_DATA_WIDTH))));
+    function clogb2(depth : in natural) return integer is
+        variable temp : integer := 2;
+        variable value : integer := 1;
+    begin
+        while depth > temp loop
+            value := value + 1;
+            temp := temp * 2;
+        end loop;
+        return value;
+    end function clogb2;
+
+    constant C_INDEX_WIDTH : natural := clogb2(C_DATA_WIDTH);
+
 begin
     process(data)
         variable var_parity : std_logic ;

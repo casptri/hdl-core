@@ -1,5 +1,5 @@
 --**
---* ecc_encode.vhd- error correcrion code encoder
+--* ecc_encode.vhd- error correction code encoder
 --*
 --* Copyright (c) 2023 Caspar Trittibach
 --* Author: Caspar Trittibach <ctrittibach@gmail.com>
@@ -10,15 +10,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.math_real.all;
 
 entity ecc_encode is
-    GENERIC(
+    generic(
         C_ODD_PARITY : std_logic := '1';
         C_DATA_WIDTH : natural range 32 to 64 := 33;
         C_NR_PARITY  : natural range 6 to 7 := 6
     );
-    PORT(
+    port(
         clk   : in std_logic;
         rst   : in std_logic;
 
@@ -33,6 +32,7 @@ entity ecc_encode is
 end ecc_encode;
 
 architecture behavioral of ecc_encode is
+
     constant ECC_DATA_WIDTH : natural := C_DATA_WIDTH + C_NR_PARITY + 1;
 
     signal parity_bit : std_logic_vector(C_NR_PARITY - 1 downto 0);
@@ -44,11 +44,8 @@ architecture behavioral of ecc_encode is
     signal valid_d : std_logic_vector(1 downto 0);
 
     signal rdy : std_logic;
-begin
 
-    --check if enough parity bits are present--
-    --assert 2**C_NR_PARITY >= C_DATA_WIDTH+C_NR_PARITY+2
-    --    report "Generics do not satisfy hamming distance" severity failure;
+begin
 
     parity_gen: for n in 1 to C_NR_PARITY generate
         rth_parity_inst_n : entity work.rth_parity
