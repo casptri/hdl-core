@@ -53,8 +53,6 @@ begin
         end if;
         if (intern_ready = '1') then
           m_tdata <= in_mux_data;
-        end if;
-        if (intern_ready = '1') then
           m_tvalid <= intern_valid;
         end if;
         if (intern_valid = '1') then

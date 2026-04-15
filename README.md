@@ -1,57 +1,32 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![MIT License](https://img.shields.io/github/license/casptri/hdl-core)](LICENSE.txt)
 
-## About The Project
-This repo is a collection of some utility modules.
+# hdl-core
 
-## Getting Started
-### Prerequisites
+A growing collection of reusable VHDL IP cores, each with a [cocotb](https://www.cocotb.org/) testbench and a Python reference model for verification.
 
-### Installation
+## Cores
 
-## Usage
+| Core | Description |
+|------|-------------|
+| [`ecc`](ecc/) | SECDED Hamming encoder and decoder with AXI-stream interface. Configurable data width (32–64 bit) and parity bits. |
+| [`skid_buffer`](skid_buffer/) | AXI-stream skid buffer. Decouples upstream and downstream handshake logic with one cycle of pipeline latency. |
+| [`debounce`](debounce/) | Multi-signal debounce filter. Configurable debounce time and number of signals. |
+
+Each core has its own README with design notes and testbench instructions.
+
+## Testing
+
+Testbenches are written in Python using [cocotb](https://www.cocotb.org/) with [GHDL](https://ghdl.github.io/ghdl/) as the simulator. Each core includes a software reference model that independently computes the expected output, which is compared against the HDL simulation result.
 
 ## Roadmap
-- [ ] Fill out Readme
-- Add more IPs
-    - [x] debounce
-    - [x] ecc encode and decoder
-    - [x] skid buffer
-    - [ ] moving average filter
-    - [ ] i2c master
-    - [ ] spi master
-    - [ ] axi light slave
-    - [ ] axi light master
-    - [ ] pid controller
 
-## Contributing
+- [ ] Moving average filter
+- [ ] I2C master
+- [ ] SPI master
+- [ ] AXI-Lite slave
+- [ ] AXI-Lite master
+- [ ] PID controller
 
 ## License
 
-## Contact
-
-## Acknowledgments
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/casptri/hdl-core.svg?style=for-the-badge
-[contributors-url]: https://github.com/casptri/hdl-core/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/casptri/hdl-core.svg?style=for-the-badge
-[forks-url]: https://github.com/casptri/hdl-core/network/members
-[stars-shield]: https://img.shields.io/github/stars/casptri/hdl-core.svg?style=for-the-badge
-[stars-url]: https://github.com/casptri/hdl-core/stargazers
-[issues-shield]: https://img.shields.io/github/issues/casptri/hdl-core.svg?style=for-the-badge
-[issues-url]: https://github.com/casptri/hdl-core/issues
-[license-shield]: https://img.shields.io/github/license/casptri/hdl-core.svg?style=for-the-badge
-[license-url]: https://github.com/casptri/hdl-core/blob/master/LICENSE.txt
+MIT — see [LICENSE.txt](LICENSE.txt)
