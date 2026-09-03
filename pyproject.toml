@@ -8,7 +8,7 @@ testpaths = [
 name = "hdl-core"
 version = "0.1.0"
 description = ""
-authors = ["Caspar Trittibach <caspar.trittibach@haag-streit.com>"]
+authors = ["Caspar Trittibach <>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
