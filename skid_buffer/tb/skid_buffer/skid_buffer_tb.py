@@ -1,8 +1,7 @@
 import random
 
 import cocotb
-from cocotb.clock import Timer
-from cocotb.triggers import FallingEdge
+from cocotb.triggers import FallingEdge, Timer
 
 from dut import DutWrapper
 
@@ -18,7 +17,7 @@ async def test_buffer(dut):
     await tb.reset()
 
     await FallingEdge(dut.clk)
-    await Timer(1, units="us")
+    await Timer(1, unit="us")
     for _ in range(10):
         val = random.randint(0, 255)
         send_transaction = tb.source.send(val.to_bytes(1, "big"))
@@ -37,17 +36,17 @@ async def test_full_thruput(dut):
     await tb.reset()
 
     await FallingEdge(dut.clk)
-    await Timer(1, units="us")
+    await Timer(1, unit="us")
 
     await FallingEdge(dut.clk)
     for _ in range(10):
         val = random.randint(0, 255)
-        assert tb.dut.s_tready.value == 1
+        assert int(tb.dut.s_tready.value) == 1
         tb.dut.m_tready.value = 1
         tb.dut.s_tdata.value = val
         tb.dut.s_tvalid.value = 1
         await FallingEdge(dut.clk)
-        assert tb.dut.m_tdata.value == val
+        assert int(tb.dut.m_tdata.value) == val
 
 
 @cocotb.test(timeout_time=5, timeout_unit="us", skip=False)
@@ -63,7 +62,7 @@ async def test_stall(dut):
     await tb.reset()
 
     await FallingEdge(dut.clk)
-    await Timer(1, units="us")
+    await Timer(1, unit="us")
 
     await FallingEdge(dut.clk)
     input_value = []
@@ -72,19 +71,19 @@ async def test_stall(dut):
     tb.dut.m_tready.value = 0
 
     def check_and_set():
-        if tb.dut.s_tready.value == 1:
+        if int(tb.dut.s_tready.value) == 1:
             input_value.append(random.randint(0, 255))
             tb.dut.s_tdata.value = input_value[-1]
 
-    assert tb.dut.s_tready.value == 1
+    assert int(tb.dut.s_tready.value) == 1
     check_and_set()
     await FallingEdge(dut.clk)
     for _ in range(10):
-        assert tb.dut.s_tready.value == 1
+        assert int(tb.dut.s_tready.value) == 1
         check_and_set()
         for _ in range(3):
             await FallingEdge(dut.clk)
-            assert tb.dut.s_tready.value == 0
+            assert int(tb.dut.s_tready.value) == 0
         tb.dut.m_tready.value = 1
         check_and_set()
         output_value.append(int(tb.dut.m_tdata.value))

@@ -1,5 +1,6 @@
 import cocotb
-from cocotb.clock import Clock, Timer
+from cocotb.clock import Clock
+from cocotb.triggers import Timer
 from cocotbext.axi import (
     AxiStreamBus,
     AxiStreamSink,
@@ -11,7 +12,7 @@ class DutWrapper:
     def __init__(self, dut, clock_period):
         self.dut = dut
         self.clkPeriod = clock_period
-        clock = Clock(dut.clk, self.clkPeriod, units="ns")
+        clock = Clock(dut.clk, self.clkPeriod, unit="ns")
         cocotb.start_soon(clock.start(start_high=False))
         self.dut.rst.value = 1
 
@@ -24,5 +25,5 @@ class DutWrapper:
 
     async def reset(self):
         self.dut.rst.value = 1
-        await Timer(1, units="us")
+        await Timer(1, unit="us")
         self.dut.rst.value = 0

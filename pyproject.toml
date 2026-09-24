@@ -1,23 +1,26 @@
-# pyproject.toml
-[tool.pytest.ini_options]
-testpaths = [
-    "ecc/tb",
-    ]
-
-[tool.poetry]
+[project]
 name = "hdl-core"
 version = "0.1.0"
-description = ""
-authors = ["Caspar Trittibach <>"]
+description = "HDL core IP library"
 readme = "README.md"
+authors = [
+    { name = "Caspar Trittibach", email = "ctrittibach@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "cocotb>=2.0",
+    "cocotbext-axi>=0.1.28",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-pytest = "^7.4.3"
-cocotb = "^1.8.1"
-numpy = "^1.26.4"
+[dependency-groups]
+dev = [
+    "pytest>=8.2.1",
+    "ruff>=0.6.9",
+]
 
+[tool.uv]
+package = false
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.pytest.ini_options]
+testpaths = ["ecc/tb", "debounce/tb", "skid_buffer/tb"]
+addopts = "--import-mode=importlib"
