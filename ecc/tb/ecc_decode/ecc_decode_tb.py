@@ -28,7 +28,7 @@ async def ecc_decode(dut):
     error |= random.randint(0, 1) << random.randint(0, 39)
     encoded_data ^= error
     par, pos = ecc.decode(encoded_data)
-    print("parity:", par, "postition:", pos)
+    print("parity:", par, "position:", pos)
     dut.in_data.value = encoded_data
     dut.in_valid.value = 1
     dut.out_ready.value = 1

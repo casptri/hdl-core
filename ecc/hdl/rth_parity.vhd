@@ -1,16 +1,15 @@
 --**
---* rth_parity.vhd - Calculate R'th parrity bit of a vector
+--* rth_parity.vhd - Calculate R'th parity bit of a vector
 --*
 --* Copyright (c) 2023 Caspar Trittibach
 --* Author: Caspar Trittibach <ctrittibach@gmail.com>
 --*
 --**
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
-use IEEE.NUMERIC_STD.ALL;
-use IEEE.math_real.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
 
 entity rth_parity is
     generic(

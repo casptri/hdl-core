@@ -9,7 +9,6 @@
 library ieee;
   use ieee.std_logic_1164.all;
   use ieee.numeric_std.all;
-  use ieee.math_real.all;
 
 entity debounce is
   generic (
@@ -26,8 +25,19 @@ end entity debounce;
 
 architecture behavioral of debounce is
 
-  -- TODO: Fix float rounding problem
-  constant c_cnt_size : natural := integer(ceil(log2(real(debounce_time))));
+  -- Number of bits required to hold the reload value debounce_time.
+  function clog2 (value : positive) return natural is
+    variable result : natural  := 0;
+    variable remain : positive := value;
+  begin
+    while remain > 1 loop
+      remain := remain / 2;
+      result := result + 1;
+    end loop;
+    return result;
+  end function clog2;
+
+  constant c_cnt_size : natural := clog2(debounce_time) + 1;
 
   type u_deb_cnt_type is array (nr_of_signal - 1 downto 0) of unsigned(c_cnt_size - 1 downto 0);
 

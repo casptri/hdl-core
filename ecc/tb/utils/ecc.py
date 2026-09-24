@@ -7,9 +7,9 @@ class ECC:
 
     def printParameters(self):
         print("data bits:",self.d)
-        print("reduncant bits:",self.k)
-        print("extra parrity bit:",self.p)
-        print("odd parrity:",self.odd)
+        print("redundant bits:",self.k)
+        print("extra parity bit:",self.p)
+        print("odd parity:",self.odd)
         print("encoded data length:",self.b)
 
     def insertRedundantBits(self,value):
@@ -21,10 +21,10 @@ class ECC:
             if(i == 2**j):
                 pos = 2**j
                 mask = ~((1<<(pos-1)) -1)
-                intermediat = res & mask
-                intermediat = intermediat << 1
+                intermediate = res & mask
+                intermediate = intermediate << 1
                 res_mod = res%(1<<(pos-1))
-                res = intermediat + res_mod
+                res = intermediate + res_mod
                 j += 1
         return res
 
