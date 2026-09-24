@@ -75,10 +75,12 @@ begin
             if rst = '1' then
                 out_valid <= '0';
                 out_data <= (others => '0');
+                out_is_err <= '0';
             else
                 if rdy = '1' then
                     out_valid <= in_valid;
                     out_data <= reduced_data;
+                    out_is_err <= result_err and not(extended_parity);
                 end if;
             end if;
         end if;
@@ -106,6 +108,5 @@ begin
     rdy <= not(out_valid) or out_ready;
     in_ready <= rdy;
     result_err <= '0' when unsigned(parity_bit) = 0 else '1';
-    out_is_err <= result_err and not(extended_parity);
 
 end behavioral;
